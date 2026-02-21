@@ -40,7 +40,7 @@ hl_Lines = ""
 lineNoStart = 1
 lineNos = false
 lineNumbersInTable = true
-noClasses = true          # if false, you need to provide you own custom CSS
+noClasses = false         # use CSS classes for theme-aware syntax highlighting
 style = "monokai"
 tabWidth = 4
 [markup.goldmark.renderer]
