@@ -110,10 +110,6 @@ opts.SetBSONOptions(&options.BSONOptions{DefaultDocumentM: true}) // use bson.M 
 
 That comment — "for backward compatibility with v1" — tells the whole story. And if somewhere in your codebase you use `map[string]any` instead of `bson.M`, you need a separate escape hatch (`DefaultDocumentMap`). Two separate options to undo one default change that nobody asked for.
 
-## When a Personal GitHub Namespace Broke the Driver
-
-Not about the driver API per se, but it shows the fragility of the dependency chain. David Golden, a MongoDB engineer, moved personal Go libraries (`xdg/scram`, `xdg/stringprep`) that the driver depended on from `github.com/xdg` to `github.com/xdg-go`. A personal namespace change broke `go get -u` for everyone, and the Go module proxy cached the broken state. Production database driver availability, dependent on a personal GitHub namespace decision. Not great.
-
 ## Where Are the Generics?
 
 v2.0 shipped in January 2025, nearly three years after Go generics became available. The driver was already breaking everything: new import path, renamed types, reworked APIs. If you're going to force every user to rewrite their MongoDB code anyway, this was the moment to do it right. v2 does use generics in one place (`options.Lister[T]` for the options plumbing), but where it actually matters, the document types and query results, everything is still `any`.
