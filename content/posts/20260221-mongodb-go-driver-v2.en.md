@@ -8,7 +8,7 @@ tags: ["geek stuff"]
 
 ![](/images/posts/mongodb-go-driver-v2.png)
 
-I recently migrated several Go projects from the MongoDB Go driver v1 to v2. The v1.x line reached end of life in early 2026 (no more security patches), so there was no choice but to move. What I found on the other side was a migration far more painful than it needs to be, a handful of genuinely baffling design decisions, and a major version bump that somehow managed to miss the biggest opportunity Go has offered library authors in the last decade.
+I recently migrated several Go projects from the MongoDB Go driver v1 to v2. The v1.x line was formally deprecated in early 2026 (though critical security patches are still being released), so there was no choice but to move. What I found on the other side was a migration far more painful than it needs to be, a handful of genuinely baffling design decisions, and a major version bump that somehow managed to miss the biggest opportunity Go has offered library authors in the last decade.
 
 <!--more-->
 
